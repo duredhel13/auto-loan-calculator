@@ -1,0 +1,19 @@
+.amortization-schedule
+  mat-table([dataSource]="dataSource")
+    ng-container(matColumnDef="payment")
+      mat-header-cell(*matHeaderCellDef) Payment
+      mat-cell(*matCellDef="let node") {{node.payment}}
+    ng-container(matColumnDef="amount")
+      mat-header-cell(*matHeaderCellDef) Amount
+      mat-cell(*matCellDef="let node") ${{node.amount}}
+    ng-container(matColumnDef="principal")
+      mat-header-cell(*matHeaderCellDef) Principal
+      mat-cell(*matCellDef="let node") ${{node.principal}}
+    ng-container(matColumnDef="interest")
+      mat-header-cell(*matHeaderCellDef) Interest
+      mat-cell(*matCellDef="let node") ${{node.interest}}
+    ng-container(matColumnDef="balance")
+      mat-header-cell(*matHeaderCellDef) Balance
+      mat-cell(*matCellDef="let node") ${{node.balance}}
+    mat-header-row(*matHeaderRowDef="displayedColumns")
+    mat-row(*matRowDef="let row; columns: displayedColumns;")

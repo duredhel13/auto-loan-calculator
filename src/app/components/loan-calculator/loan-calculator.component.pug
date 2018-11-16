@@ -1,0 +1,33 @@
+h1 Auto Loan Calculator
+
+mat-card.loan-calculator
+  form([formGroup]="loanForm")
+    mat-form-field([hideRequiredMarker]="true")
+      span(matPrefix) $ &nbsp;
+      input(matInput, placeholder="Car value", formControlName="carValue", name="carValue", type="number", required)
+    mat-form-field([hideRequiredMarker]="true")
+      span(matPrefix) $ &nbsp;
+      input(matInput, placeholder="Down payment", formControlName="downPayment", name="downPayment", type="number")
+    .divider
+      mat-form-field.years([hideRequiredMarker]="true")
+        input(matInput, placeholder="Loan period (years)", formControlName="years", name="years", type="number", required)
+      mat-form-field.months([hideRequiredMarker]="true")
+        input(matInput, placeholder="Loan period (months)", formControlName="months", name="months", type="number", required)
+        mat-error Please enter a value between 0 and 11
+    mat-form-field.months([hideRequiredMarker]="true")
+      input(matInput, placeholder="Interest rate", formControlName="interest", name="interest", type="number", required)
+      mat-error Please enter a value between 0 and 100
+      span(matSuffix) %
+  .results
+    span Your estimated monthly payment
+    .payment {{monthyPayments ? '$' + (monthyPayments | ceil) : 'N/A'}}
+    .interest
+      span Total Interest Paid
+      span {{totalInterest ? '$' + (totalInterest | ceil) : 'N/A'}}
+    button(mat-flat-button, 
+          color="primary",
+          [disabled]="loanForm.invalid",
+          (click)="seeAmortizationSchedule()") See amortization schedule
+
+mat-card.amortization-schedule(*ngIf="showAmortizationSchedule")
+  app-amortization-schedule([dataSource]="dataSource")

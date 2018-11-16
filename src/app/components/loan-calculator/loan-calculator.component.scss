@@ -1,0 +1,76 @@
+@import '../../../scss/variables';
+
+h1 {
+  color: #b0a7d9;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.loan-calculator, .amortization-schedule {
+  background: $secondary-color;
+  width: 100%;
+  margin: 20px auto;
+  padding: 0;
+  max-width: 700px;
+  border-radius: 0;
+}
+
+.loan-calculator {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+
+  h1 {
+    margin: 0 auto;
+  }
+
+  form, .results {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    padding: 20px;
+    min-height: 265px;
+  }
+
+  form {
+    .divider {
+      display: flex;
+      flex-direction: row;
+
+      .mat-form-field:first-child {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  .results {
+    background: $primary-color;
+    color: white;
+    justify-content: space-around;
+
+    .payment {
+      font-size: 2rem;
+    }
+
+    .interest {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .loan-calculator {
+    &, form .divider {
+      flex-direction: column;
+
+      .mat-form-field {
+        margin: 0;
+      }
+    }
+  }
+
+  .loan-calculator, .amortization-schedule {
+    margin: 0 auto;
+  }
+}

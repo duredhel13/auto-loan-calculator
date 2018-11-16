@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+@import './scss/variables';
+
+html, body {
+  height: 100%;
+}
+
+body {
+  // background: linear-gradient(to bottom, #1a1827 18%,#311532 74%);
+  background: #311532;
+  margin: 0;
+}
+
+h1 {
+  color: $primary-color;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
